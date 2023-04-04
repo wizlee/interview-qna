@@ -23,3 +23,16 @@ print(anagram("as dg", "da sg"))
 print(anagram("alpaaa", "laap"))
 print(anagram("this makes sense", "sense makes this"))
 print(anagram("this makes sense", "sense  makes this"))
+
+'''
+This is added after the fact when preparing for another interview.
+This shows how not well prepared I am for this interview.
+'''
+# a much easier way is to use the built-in sorted() function
+def is_anagram(str1, str2):
+  return sorted(str1) == sorted(str2)
+
+print(is_anagram("as dg", "da sg"))
+print(is_anagram("alpaaa", "laap"))
+print(is_anagram("this makes sense", "sense makes this"))
+print(is_anagram("this makes sense", "sense  makes this"))
