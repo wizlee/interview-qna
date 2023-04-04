@@ -69,6 +69,14 @@ Potentially useful Pythonic Way of writing things:
         parrot(**d)
         # outputs: -- This parrot wouldn't VOOM if you put four million volts through it. E's bleedin' demised !
         ```
+- sets:
+    - operators 
+        - `^`: symmetric difference
+        - `-`: difference
+        - `|`: union
+        - `&`: intersection operations
+    - everything in A that's not in B: `A - B`
+    - all the elements that are in exactly one set, i.e. the union of `A - B` and `B - A`: `A ^ B` or `A.symmetric_difference(B)`
 
 ## Practise Rounds
 
