@@ -10,6 +10,9 @@ def task_1(A):
 def task_2(N, K):
     MAX_DIGIT = 9
     digits = [int(i) for i in str(N)]
+    print(f"N={N}, K={K}")
+    print(digits)
+
     for i, _ in enumerate(digits):
         allow_to_add = MAX_DIGIT - digits[i]
         if K < allow_to_add:
@@ -17,18 +20,67 @@ def task_2(N, K):
         K -= allow_to_add
         digits[i] += allow_to_add
 
-    print(f"N={N}, K={K}")
-    print(digits)
-
     ret = int(''.join([str(d) for d in digits]))
     return ret
 
-def task_3(N, K):
-    return
+from itertools import combinations
+from collections import Counter
+import string
+
+def get_all_substr_moreThan2Char(string):
+    length = len(string) + 1
+    # only return  combinations with more than 1 char and combination that has even number of characters
+    return set([string[x:y] for x, y in combinations(range(length), r=2) if (y > x + 1) and ((y - x) % 2 == 0)])
+
+def randomword(length):
+   letters = string.ascii_lowercase
+   return ''.join(random.choice(letters) for i in range(length))
+
+def task_4(S):
+    ret = 0
+
+    cont_substr_list = get_all_substr_moreThan2Char(S)
+    print(cont_substr_list)
+    filtered_substr_list = []
+
+    for ss in cont_substr_list:
+        counter = Counter(ss)
+        contiguous = True
+        for _, cnt in counter.items():
+            if cnt % 2 == 1: # odd number
+                contiguous = False
+                break
+
+        if contiguous:
+            filtered_substr_list.append(ss)
+
+    if filtered_substr_list:
+        ret = len(max(filtered_substr_list, key=len))
+
+    return ret
+
 
 if __name__ == "__main__":
     # print(task_1([-6, -91, 1011, -100, 84, -22, 0, 1, 473]))
+    # ans = random.randint(-9, 9)
+    # print(ans)
+    # gen = [random.randint(-10000, 10000) if i != 500 else ans for i in range(1, 1001)]
+    # print(gen)
+    # print(f"ans={ans}; calculated={task_1(gen)}")
+
     # print(task_2(512, 10))
     # print(task_2(285, 20))
-    # print(task_2(random.randint(100, 999), random.randint(0, 30)))
-    print(task_2(512, 0))
+    # print(task_2(286, 0))
+    print(task_2(random.randint(100, 999), random.randint(0, 30)))
+    # print(task_2(512, 0))
+
+    # print(task_4("bdaaadadb"))
+    # print(task_4("abacb"))
+    # print(task_4("zthtzh"))
+    # print(task_4(randomword(100000)))
+
+    # Result
+    # task 1 to 3 100%
+    # task 4
+    #   correctness 5 out of 7
+    #   performance 0 out of 5
