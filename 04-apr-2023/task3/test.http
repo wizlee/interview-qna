@@ -1,0 +1,47 @@
+# Example candidates
+# {
+#   "id": "ae588a6b-4540-5714-bfe2-a5c2a65f547a",
+#   "name": "Jimmy Coder",
+#   "skills": [ "javascript", "es6", "nodejs", "express" ]
+# }
+# {
+#   "id": "ae588a6b-4540-5714-bfe2-a5c2a65f547a",
+#   "name": "John Coder",
+#   "skills": [ "javascript", "es6", "nodejs", "express" ]
+# }
+@base_url = http://localhost:3000
+
+###
+# @name postCandidates_Success
+POST {{base_url}}/candidates
+Content-Type: application/json
+
+{
+  "id": "ae588a6b-4540-5714-bfe2-a5c2a65f547a",
+  "name": "Jimmy Coder",
+  "skills": [ "javascript", "es6", "nodejs", "express" ]
+}
+
+###
+# @name postCandidates_NoContextType
+POST {{base_url}}/candidates
+
+{
+  "id": "ae588a6b-4540-5714-bfe2-a5c2a65f547a",
+  "name": "Jimmy Coder",
+  "skills": [ "javascript", "es6", "nodejs", "express" ]
+}
+
+###
+# @name postCandidates_NoBody
+POST {{base_url}}/candidates
+Content-Type: application/json
+
+
+###
+# @name getCandidate_Success
+GET {{base_url}}/candidates/search?skills=javascript,express,mongodb
+
+###
+# @name getCandidate_NoSkill
+GET {{base_url}}/candidates/search?skills
