@@ -1,6 +1,9 @@
 import random
 
 def task_1(A):
+    '''
+    Find the maximum single digit integer (including negative integers) from an integer list
+    '''
     possible_ans = {i for i in range(-9, 10)}
     set_a = set(A)
 
@@ -8,6 +11,10 @@ def task_1(A):
     return max(common)
 
 def task_2(N, K):
+    '''
+    Compute the maximum possible outcome using integer, N which is incremented by at most integer, K step(s).
+    N can only be incremented by 1 for each digit individually.
+    '''
     MAX_DIGIT = 9
     digits = [int(i) for i in str(N)]
     print(f"N={N}, K={K}")
@@ -37,6 +44,11 @@ def randomword(length):
    return ''.join(random.choice(letters) for i in range(length))
 
 def task_4(S):
+    '''
+    From a word consisted of only lowercase alphabets, count the max number of "CONSECUTIVE" characters where each different character must have even count.
+
+    Example (bracket is the max count) -> bdaaadadb(6) abacb(0) zthtzh(6)
+    '''
     ret = 0
 
     cont_substr_list = get_all_substr_moreThan2Char(S)
@@ -60,23 +72,29 @@ def task_4(S):
     return ret
 
 
+def print_cutout(seq, idx):
+    first_portion_remove_last_bracket = str(seq[:idx])[:-1]
+    last_portion_remove_first_bracket = str(seq[-idx:])[1:]
+    return print(f"{first_portion_remove_last_bracket}, ..., {last_portion_remove_first_bracket}")
+
+
 if __name__ == "__main__":
     # print(task_1([-6, -91, 1011, -100, 84, -22, 0, 1, 473]))
     # ans = random.randint(-9, 9)
     # print(ans)
     # gen = [random.randint(-10000, 10000) if i != 500 else ans for i in range(1, 1001)]
-    # print(gen)
+    # print_cutout(gen, 100)
     # print(f"ans={ans}; calculated={task_1(gen)}")
 
     # print(task_2(512, 10))
     # print(task_2(285, 20))
     # print(task_2(286, 0))
-    print(task_2(random.randint(100, 999), random.randint(0, 30)))
+    # print(task_2(random.randint(100, 999), random.randint(0, 30)))
     # print(task_2(512, 0))
 
-    # print(task_4("bdaaadadb"))
-    # print(task_4("abacb"))
-    # print(task_4("zthtzh"))
+    print(task_4("bdaaadadb"))
+    print(task_4("abacb"))
+    print(task_4("zthtzh"))
     # print(task_4(randomword(100000)))
 
     # Result

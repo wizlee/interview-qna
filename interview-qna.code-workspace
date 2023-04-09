@@ -10,6 +10,10 @@
     ]
   },
   "settings": {
+    "terminal.integrated.cwd": "${workspaceFolder}/04-apr-2023",
+    "terminal.integrated.env.windows": {
+        "BASH_INIT_COMMAND": "conda activate learning"
+    },
     "editor.tabSize": 4,
     "[javascript]": {
         "editor.tabSize": 2
