@@ -80,11 +80,11 @@ def print_cutout(seq, idx):
 
 if __name__ == "__main__":
     # print(task_1([-6, -91, 1011, -100, 84, -22, 0, 1, 473]))
-    # ans = random.randint(-9, 9)
-    # print(ans)
-    # gen = [random.randint(-10000, 10000) if i != 500 else ans for i in range(1, 1001)]
-    # print_cutout(gen, 100)
-    # print(f"ans={ans}; calculated={task_1(gen)}")
+    ans = random.randint(-9, 9)
+    print(ans)
+    gen = [random.randint(-10000, 10000) if i != 500 else ans for i in range(1, 1001)]
+    print_cutout(gen, 100)
+    print(f"ans={ans}; calculated={task_1(gen)}")
 
     # print(task_2(512, 10))
     # print(task_2(285, 20))
@@ -92,9 +92,9 @@ if __name__ == "__main__":
     # print(task_2(random.randint(100, 999), random.randint(0, 30)))
     # print(task_2(512, 0))
 
-    print(task_4("bdaaadadb"))
-    print(task_4("abacb"))
-    print(task_4("zthtzh"))
+    # print(task_4("bdaaadadb"))
+    # print(task_4("abacb"))
+    # print(task_4("zthtzh"))
     # print(task_4(randomword(100000)))
 
     # Result

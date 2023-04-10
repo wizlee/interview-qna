@@ -6,7 +6,8 @@
   ],
   "extensions": {
     "recommendations": [
-      "ms-python.python"
+        "ms-python.python",
+        "humao.rest-client"
     ]
   },
   "settings": {
